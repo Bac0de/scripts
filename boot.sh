@@ -17,7 +17,7 @@ virsh net-start default
 chown libvirt-qemu:libvirt-qemu /dev/kvm
 
 # Set hugepages
-set_hugepages.sh
+/etc/batu/set_hugepages.sh
 
 # Set tunables
 # - Disable THP
