@@ -77,7 +77,6 @@
       <master startport='4'/>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x05' function='0x2'/>
     </controller>
-    <controller type='pci' index='0' model='pci-root'/>
     <controller type='ide' index='0'>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x01' function='0x1'/>
     </controller>
@@ -104,7 +103,6 @@
       <address type='usb' bus='0' port='3'/>
     </input>
     <input type='mouse' bus='ps2'/>
-    <input type='keyboard' bus='ps2'/>
     <graphics type='spice' autoport='yes'>
       <listen type='address'/>
       <image compression='off'/>
