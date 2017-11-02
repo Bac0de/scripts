@@ -1,6 +1,6 @@
 <domain type='kvm'>
-  <name>win10</name>
-  <uuid>d1494caf-0f0b-4b7d-b3c5-d154f50cd206</uuid>
+  <name>BATU_CREATE_NAME</name>
+  <uuid>BATU_CREATE_UUID</uuid>
   <memory unit='KiB'>8388608</memory>
   <currentMemory unit='KiB'>8388608</currentMemory>
   <memoryBacking>
@@ -84,7 +84,7 @@
       <address type='pci' domain='0x0000' bus='0x00' slot='0x06' function='0x0'/>
     </controller>
     <interface type='network'>
-      <mac address='52:54:00:79:f3:2b'/>
+      <mac address='BATU_CREATE_MAC'/>
       <source network='default'/>
       <model type='rtl8139'/>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x03' function='0x0'/>
