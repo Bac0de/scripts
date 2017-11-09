@@ -55,3 +55,6 @@ chown libvirt-qemu:kvm $NAME-$ID.qcow2
 virsh undefine $NAME-$ID 2>/dev/null
 virsh define /tmp/$NAME-$ID-$UUID.xml
 rm /tmp/$NAME-$ID-$UUID.xml
+
+# Re-set hugepages
+/etc/batu/hugepages.sh
