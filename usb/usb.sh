@@ -33,6 +33,11 @@ if [ -z "$DEVPATH" ]; then
   exit 1
 fi
 
+# Pass if a hub is detected as sub devices must be passed instead of an entire hub
+if echo $DRIVER $ID_MODEL $ID_MODEL_ENC $ID_MODEL_FROM_DATABASE | grep -qi hub; then
+  exit 0
+fi
+
 # Convert variables so that libvirt can understand
 BUSNUM=$((10#$BUSNUM))
 DEVNUM=$((10#$DEVNUM))
