@@ -1,0 +1,1 @@
+SUBSYSTEM=="usb", RUN+="/etc/batu/usb/usb.sh"
