@@ -3,6 +3,9 @@
 # Print to the kernel buffer
 exec > /dev/kmsg 2>&1
 
+# Sleep for a bit to give libusb some buffer time
+sleep 0.2
+
 if [ -z "$ACTION" ]; then
   echo "batu: missing ACTION variable" 1>&2
   exit 1
