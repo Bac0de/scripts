@@ -83,4 +83,12 @@ echo "
     <address bus='$BUSNUM' device='$DEVNUM' />
   </source>
 </hostdev>
-" | virsh $COMMAND $DOMAIN /dev/stdin
+" > /etc/batu/run/usb/$DOMAIN-$BUSNUM-$DEVNUM.xml
+
+# Attach via virsh
+virsh $COMMAND $DOMAIN /etc/batu/run/usb/$DOMAIN-$BUSNUM-$DEVNUM.xml
+
+# Delete from persistent storage so that next VM startup won't register
+if [[ $COMMAND == "detach-device" ]]; then
+  rm /etc/batu/run/usb/$DOMAIN-$BUSNUM-$DEVNUM.xml
+fi
