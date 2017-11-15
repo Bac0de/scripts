@@ -32,8 +32,9 @@ echo "Disabling entropy contributions"
 find /sys -name add_random -exec sh -c 'echo "0" > {}' \;
 # - Set I/O schedulers to CFQ
 #   Distribute I/O requests to VMs fairly
+#   Setting on NVMe might fail - ignore it
 echo "Setting I/O schedulers to CFQ"
-find /sys/devices -name scheduler | grep -v virtual | while read file; do echo cfq > $file; done
+find /sys/devices -name scheduler | grep -v virtual | while read file; do echo cfq > $file 2>/dev/null; done
 # - Set readahead to 128 kB
 #   Not meaningful to non-rotational storage, set to minimum to minimize memory thrashing
 echo "Setting readahead buffer to minimum (128kB)"
