@@ -7,6 +7,13 @@ export DISPLAY=:0
 while ! pgrep lxsession > /dev/null; do sleep 0.5; done
 sleep 1
 
+# Check for batu kernel
+if ! uname -a | grep -q batu; then
+  echo "Generic Linux kernel detected!" 1>&2
+  echo "Using Batu Linux kernel is required for Batu to properly function." 1>&2
+  echo "Use at your own risk!" 1>&2
+fi
+
 # Start libvirtd
 service libvirtd start
 
