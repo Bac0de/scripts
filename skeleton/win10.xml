@@ -192,6 +192,10 @@
   <qemu:commandline>
     <qemu:env name='QEMU_AUDIO_DRV' value='alsa'/>
     <qemu:env name='QEMU_ALSA_DAC_DEV' value='hw:CARD=BROrion,DEV=0'/>
+    <qemu:env name='QEMU_ALSA_ADC_BUFFER_SIZE' value='1024'/>
+    <qemu:env name='QEMU_ALSA_DAC_BUFFER_SIZE' value='1024'/>
+    <qemu:env name='QEMU_ALSA_DAC_PERIOD_SIZE' value='128'/>
+    <qemu:env name='QEMU_ALSA_ADC_PERIOD_SIZE' value='128'/>
   </qemu:commandline>
 </domain>
 
