@@ -189,5 +189,9 @@
       <address type='pci' domain='0x0000' bus='0x05' slot='0x00' function='0x0'/>
     </rng>
   </devices>
+  <qemu:commandline>
+    <qemu:env name='QEMU_AUDIO_DRV' value='alsa'/>
+    <qemu:env name='QEMU_ALSA_DAC_DEV' value='hw:CARD=BROrion,DEV=0'/>
+  </qemu:commandline>
 </domain>
 
