@@ -1,0 +1,8 @@
+export CC='ccache gcc-7'
+export CXX='ccache g++-7'
+
+export CFLAGS='-O3 -march=native -Wno-error'
+export CXXFLAGS='-O3 -march=native -Wno-error'
+
+export CPUS=32
+export NOCONFIGURE=1
