@@ -60,4 +60,4 @@ virsh define /tmp/$NAME-$ID-$UUID.xml
 rm /tmp/$NAME-$ID-$UUID.xml
 
 # Re-set hugepages
-/etc/batu/hugepages.sh
+/etc/batu/set_hugepages.sh
