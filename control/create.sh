@@ -50,7 +50,7 @@ else
       echo "Please run initial.sh after setting up $NAME-1!" 1>&2
       exit 1
     fi
-    qemu-img create -f qcow2 -S ${SIZE}G $NAME-$ID.qcow2
+    qemu-img create -f qcow2 $NAME-$ID.qcow2 ${SIZE}G
   fi
 fi
 
