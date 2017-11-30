@@ -36,12 +36,10 @@ if [[ "$FROM" != "0" ]]; then
   ORIG=$FROM-$(date "+%y%m%d")-$(uuidgen)
   /etc/batu/control/initial.sh $FROM $ORIG
   qemu-img create -f qcow2 -b $NAME-$ORIG.qcow2 $NAME-$ID.qcow2
-  sed -i -e s@BATU_CREATE_IMG@$NAME-$ID.qcow2@g /tmp/$NAME-$ID-$UUID.xml
 else
   # Fork from base image
   if [ -e $NAME-common.qcow2 ]; then
     qemu-img create -f qcow2 -b $NAME-common.qcow2 $NAME-$ID.qcow2
-    sed -i -e s@BATU_CREATE_IMG@$NAME-$ID.qcow2@g /tmp/$NAME-$ID-$UUID.xml
   else
     # Create an initial image
     # ID must be 1
@@ -54,6 +52,7 @@ else
   fi
 fi
 
+sed -i -e s@BATU_CREATE_IMG@$NAME-$ID.qcow2@g /tmp/$NAME-$ID-$UUID.xml
 chown libvirt-qemu:kvm $NAME-$ID.qcow2
 virsh undefine $NAME-$ID 2>/dev/null
 virsh define /tmp/$NAME-$ID-$UUID.xml
