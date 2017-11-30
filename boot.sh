@@ -27,11 +27,13 @@ chown libvirt-qemu:libvirt-qemu /dev/kvm
 /etc/batu/set_hugepages.sh
 
 # Set tunables
-# - Disable THP
-#   QEMU runs on hugepages explicitly, so disable THP and save memory for system
-echo "Disabling THP"
-echo "never" > /sys/kernel/mm/transparent_hugepage/enabled
-echo "never" > /sys/kernel/mm/transparent_hugepage/defrag
+# - Tweak THP
+#   QEMU runs on hugepages explicitly
+#   but allow rest of the system(including QEMU other than VM allocation)
+#   to benefit from jemalloc's THP
+echo "Tweaking THP"
+echo "madvise" > /sys/kernel/mm/transparent_hugepage/enabled
+echo "madvise" > /sys/kernel/mm/transparent_hugepage/defrag
 # - Disable entropy contributions
 #   Should be the default for non-rotational storage,
 #   disable it altogether to prevent additional latency
