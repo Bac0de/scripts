@@ -15,6 +15,9 @@ MAC=$(hexdump -n4 -e'/4 "ba:40" 4/1 ":%02x"' /dev/urandom)
 if [[ -z "$FROM" ]]; then
   FROM=0
 fi
+if [[ -z "$SIZE" ]]; then
+  SIZE=40
+fi
 
 echo "Creating $NAME-$ID"
 echo "UUID - $UUID"
