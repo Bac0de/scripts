@@ -23,6 +23,10 @@ virsh net-start default
 # Fix /dev/kvm node permission
 chown libvirt-qemu:libvirt-qemu /dev/kvm
 
+# Fix XAuth permission
+runuser -u batu xhost si:localuser:libvirt-qemu
+runuser -u batu xhost si:localuser:root
+
 # Set hugepages
 /etc/batu/set_hugepages.sh
 
