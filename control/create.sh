@@ -55,6 +55,7 @@ else
 fi
 
 sed -i -e s@BATU_CREATE_IMG@$NAME-$ID.qcow2@g /tmp/$NAME-$ID-$UUID.xml
+sed -i -e s@BATU_MONITOR@$(($ID - 1))@g /tmp/$NAME-$ID-$UUID.xml
 chown libvirt-qemu:kvm $NAME-$ID.qcow2
 virsh undefine $NAME-$ID 2>/dev/null
 virsh define /tmp/$NAME-$ID-$UUID.xml
