@@ -30,6 +30,8 @@ sed -i -e s@BATU_CREATE_NAME@$NAME-$ID@g /tmp/$NAME-$ID-$UUID.xml
 sed -i -e s@BATU_CREATE_UUID@$UUID@g     /tmp/$NAME-$ID-$UUID.xml
 sed -i -e s@BATU_CREATE_MAC@$MAC@g       /tmp/$NAME-$ID-$UUID.xml
 
+virsh destroy $NAME-$ID
+
 cd /var/lib/libvirt/images
 if [[ "$FROM" != "0" ]]; then
   # Fork from another VM
