@@ -101,6 +101,16 @@
       <target chassis='7' port='0x14'/>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x02' function='0x4'/>
     </controller>
+    <controller type='pci' index='8' model='pcie-root-port'>
+      <model name='pcie-root-port'/>
+      <target chassis='8' port='0x15'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x02' function='0x5'/>
+    </controller>
+    <controller type='pci' index='9' model='pcie-root-port'>
+      <model name='pcie-root-port'/>
+      <target chassis='9' port='0x16'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x02' function='0x6'/>
+    </controller>
     <controller type='virtio-serial' index='0'>
       <address type='pci' domain='0x0000' bus='0x03' slot='0x00' function='0x0'/>
     </controller>
@@ -111,7 +121,7 @@
       <mac address='BATU_CREATE_MAC'/>
       <source network='default'/>
       <model type='rtl8139'/>
-      <address type='pci' domain='0x0000' bus='0x02' slot='0x01' function='0x0'/>
+      <address type='pci' domain='0x0000' bus='0x09' slot='0x00' function='0x0'/>
     </interface>
     <serial type='pty'>
       <target port='0'/>
@@ -119,24 +129,10 @@
     <console type='pty'>
       <target type='serial' port='0'/>
     </console>
-    <channel type='spicevmc'>
-      <target type='virtio' name='com.redhat.spice.0'/>
-      <address type='virtio-serial' controller='0' bus='0' port='1'/>
-    </channel>
-    <input type='tablet' bus='usb'>
-      <address type='usb' bus='0' port='3'/>
-    </input>
     <input type='mouse' bus='ps2'/>
     <input type='keyboard' bus='ps2'/>
-    <graphics type='spice' autoport='yes'>
-      <listen type='address'/>
-      <image compression='off'/>
-    </graphics>
-    <sound model='ich6'>
-      <address type='pci' domain='0x0000' bus='0x02' slot='0x02' function='0x0'/>
-    </sound>
     <video>
-      <model type='qxl' ram='65536' vram='65536' vgamem='16384' heads='1' primary='yes'/>
+      <model type='qxl' ram='131072' vram='131072' vgamem='65536' heads='1' primary='yes'/>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x01' function='0x0'/>
     </video>
     <redirdev bus='usb' type='spicevmc'>
